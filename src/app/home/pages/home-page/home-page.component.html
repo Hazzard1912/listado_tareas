@@ -1,0 +1,81 @@
+<div>
+  <div *ngIf="verTareasCompletadas" class="p-4 flex flex-wrap gap-2">
+    <div *ngFor="let tarea of tareasCompletadas" pAnimate enterClass="flip" animation-delay-500 animation-duration-500>
+      <p-card
+        [header]="tarea.nombre | titlecase"
+        [subheader]="'Estado: ' + tarea.estado"
+        [style]="{ width: '360px' }"
+      >
+        <p>
+          {{ tarea.descripcion }}
+        </p>
+        <ng-template pTemplate="footer">
+          <p-button
+            label="Cambiar Estado"
+            icon="pi pi-check"
+            (onClick)="cambiarEstado(tarea.nombre)"
+          ></p-button>
+        </ng-template>
+      </p-card>
+    </div>
+  </div>
+  <div *ngIf="verTareasPendientes" class="p-4 flex flex-wrap gap-2">
+    <div *ngFor="let tarea of tareasPendientes"  pAnimate enterClass="flip" animation-delay-500 animation-duration-500>
+      <p-card
+        [header]="tarea.nombre | titlecase"
+        [subheader]="'Estado: ' + tarea.estado"
+        [style]="{ width: '360px' }"
+      >
+        <p>
+          {{ tarea.descripcion }}
+        </p>
+        <ng-template pTemplate="footer">
+          <p-button
+            label="Cambiar Estado"
+            icon="pi pi-check"
+            (onClick)="cambiarEstado(tarea.nombre)"
+          ></p-button>
+        </ng-template>
+      </p-card>
+    </div>
+  </div>
+  <div *ngIf="verTodasLasTareas" class="p-4 flex flex-wrap gap-2">
+    <div *ngFor="let tarea of listaTareas"  pAnimate enterClass="flip" animation-delay-500 animation-duration-500>
+      <p-card
+        [header]="tarea.nombre | titlecase"
+        [subheader]="'Estado: ' + tarea.estado"
+        [style]="{ width: '360px' }"
+      >
+        <p>
+          {{ tarea.descripcion }}
+        </p>
+        <ng-template pTemplate="footer">
+          <p-button
+            label="Cambiar Estado"
+            icon="pi pi-check"
+            (onClick)="cambiarEstado(tarea.nombre)"
+          ></p-button>
+        </ng-template>
+      </p-card>
+    </div>
+  </div>
+</div>
+<hr />
+
+<div class="flex flex-wrap gap-3 justify-content-center">
+  <p-button
+    label="Ver Pendientes"
+    icon="pi pi-check"
+    (onClick)="cambiarVista('pendientes')"
+  ></p-button>
+  <p-button
+    label="Ver Completadas"
+    icon="pi pi-check"
+    (onClick)="cambiarVista('completadas')"
+  ></p-button
+  ><p-button
+    label="Ver Todas"
+    icon="pi pi-check"
+    (onClick)="cambiarVista('todas')"
+  ></p-button>
+</div>

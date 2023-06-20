@@ -1,0 +1,14 @@
+<div class="flex flex-column align-items-center bg-teal-500 p-4 mt-4" style="border-radius: 5px;">
+  <h2>Agregar Tarea</h2>
+  <form [formGroup]="formulario" class="text-center" (ngSubmit)="agregarTarea()">
+    <label for="nombre" class="text-xl">Nombre de la tarea </label>
+    <br>
+    <input type="text" pInputText formControlName="nombre" name="nombre"/>
+    <hr class="my-4">
+    <label for="descripcion" class="text-xl">Descripcion </label>
+    <br>
+    <textarea rows="5" cols="30" pInputTextarea formControlName="descripcion"></textarea>
+    <hr>
+    <button pButton label="Agregar Tarea" icon="pi pi-bookmark" [disabled]="formulario.invalid"></button>
+  </form>
+</div>
